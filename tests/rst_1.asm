@@ -1,0 +1,6 @@
+	.ORIG x3000
+
+	RST R3
+	RST R2
+    
+	.END
