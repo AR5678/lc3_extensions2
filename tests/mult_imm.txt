@@ -1,0 +1,65 @@
+
+
+
+MLT R1, R3, #9 --- " case 1 " check. 
+
+MLT R1, R1, #9:
+
+    0x1 is R1 
+    0x2 is R1
+
+loop:
+    LD r1 from 0x1. 
+    r1 = r1 + value. 
+    ST in memory
+    LD 0x2 (counter) in r1
+    r1 = r1 - 1
+    brp
+
+
+
+MLT R1, R3, #-9 --- " case 1 BR " check. 
+
+MLT R1, R1, #-9
+-------------------------------------------------------------
+
+if (r1 != r2)
+    if r2 is negative. 
+        add #0 to r2
+        br P to line ... 
+        negative:
+
+
+        pos:
+            load r2 into memory to be counter. 
+
+--------------------------------------------------------------
+MLT R1, -R3, #-9 
+R1 = 0 
+R3 = 3
+
+            - store R3, so we can reload it at the end. @ [0x1]
+
+            - not R3
+            - store R3, @ [0x2]
+
+            - load, not, store val a [0x3]
+                write_value (0x5020 | (r2 << 9) | (r2 << 6)| (0x0 & 0x1F));
+                write_value (0x1020 | (r2 << 9) | (r2 << 6) | (val & 0x1F));
+                write_value (0x903F | (r2 << 9) | (r2 << 6));
+                write_value (0x3000 | (r2 << 9) | (0x3));
+
+
+
+            loop:
+                LD r2 = mem[0x2]
+                r1 = r1 + r2
+                LD r2 = mem[0x3]
+                r2 - 1
+                st back where it came from 
+                Brp
+
+            r2 = mem[0x1]
+
+
+
