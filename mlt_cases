@@ -1,0 +1,54 @@
+MLT:
+
+Imm:
+MLT R1, R2, #9		   done.
+MLT R1, R2, #-9		   done. 
+MLT R1, -R2, #9		
+MLT R1, -R2, #-9		
+
+MLT R1, R1, #9
+MLT R1, R1, #-9
+MLT R1, -R1, #9
+MLT R1, -R1, #-9
+
+Registers: 
+
+MLT R1, R2, R3		done 
+MLT R1, -R2, R3		done 
+MLT R1, R2, -R3		done
+MLT R1, -R2, -R3		done
+
+MLT R1, R1, R3		done
+MLT R1, -R1, R3		done
+MLT R1, R1, -R3		done 
+MLT R1, -R1, -R3		done 
+
+MLT R1, R1, R1		done
+MLT R1, -R1, -R1		done
+
+MLT R1, R2, R2		done
+MLT R1, -R2, -R2		done
+
+
+
+Put all in alphabetical: 
+TIM, RND, SPR, MLT, SUB, RST
+----------------------------
+MLT, RND, RST, SPR, SUB, TIM
+
+
+files:
+- Lc3.f
+- Lc3convert.f
+- Lc3sim.c
+- Lex.lc3.c
+- Lex.lc3convert.c
+
+Out_file
+
+
+
+
+
+
+
